@@ -1,0 +1,9 @@
+{
+    "label": {
+        "Username": "Usuario",
+        "Password": "Contraseña",
+        "Login": "Iniciar sesión",
+        "Logged": "Sesion iniciada",
+        "Database": "Base de datos"
+    }
+}
