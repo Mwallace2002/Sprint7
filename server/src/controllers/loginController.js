@@ -1,10 +1,14 @@
 const connection = require('../models/db')
-const jwt = require('jsonwebtoken');
 
 module.exports.login = (req, res) =>{
-    const {username, password} = req.body;
-    const consult = 'SELECT * FROM login WHERE username = ? AND password = ?';
+    const user = req.body;
+    console.log(user);
+}
 
+
+    /*
+    const consult = 'SELECT * FROM login WHERE username = ? AND password = ?';
+    
     try {
       connection.query(consult, [username, password], (err, result)=>{
           if(err){
@@ -25,4 +29,4 @@ module.exports.login = (req, res) =>{
 
     }
 
-}
+}*/

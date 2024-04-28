@@ -1,14 +1,36 @@
 import './Login.css';
-import Home from "../Home/Home.jsx";
+/* import Home from "../Home/Home.jsx"; */
 import {useState} from "react";
 const Login = () => {
 
     const [password, setPassword] = useState('');
     const [username, setUsername] = useState('');
-    const [loginSuccessful, setLoginSuccessful] = useState(false);
+    /* const [loginSuccessful, setLoginSuccessful] = useState(false); */ 
 
-    const handdleLogin = (e) =>{
+    const handleLogin = (e) =>{
         e.preventDefault();
+        const data = {
+            username: username,
+            password: password
+        };
+        fetch('http://localhost:3000/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+            .then(response=> response.json())
+            .then(result => {
+                console.log(result)
+            })
+            .catch(error =>{
+                console.log(error)
+            })
+    }
+
+
+        /*
         const data = {
             username: username,
             password: password
@@ -32,10 +54,27 @@ const Login = () => {
             })
             .catch(error =>{
                 console.log(error)
-            })
-    }
+            }) 
+            */
+    
 
     return(
+        <div className='custom-form'>
+            <form>
+                <label className="custom-label">Username:</label>
+                <input onChange={(event) => {setUsername(event.target.value)}} 
+                       placeholder='username'
+                       className='custom-input'
+                       type='text' />
+                <label className="custom-label">Password:</label>
+                <input onChange={(event) => {setPassword(event.target.value)}}
+                       placeholder='password'
+                       className='custom-input'
+                       type="password" />
+                <button className="custom-button" onClick = {handleLogin}>Login</button>
+            </form>
+        </div>
+        /*
         <>{loginSuccessful ? <Home />: <div className="custom-form">
                 <form>
                     <label className="custom-label">Username:</label>
@@ -48,9 +87,10 @@ const Login = () => {
                            placeholder="password"
                            className="custom-input"
                            type="password" />
-                    <button className="custom-button" onClick={handdleLogin}>Login</button>
+                    <button className="custom-button" onClick={handleLogin}>Login</button>
                 </form>
             </div>}</>
+        */
     );
 }
 

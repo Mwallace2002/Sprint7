@@ -1,5 +1,5 @@
-create database project_jwt;
-use project_jwt;
+create database PP420;
+use PP420;
 
 create table login(
 	username varchar(50) not null,
@@ -8,6 +8,9 @@ create table login(
 );
 
 INSERT INTO login (username, password) VALUES
+    ('maxwallace', '1234'),
+    ('enriquefaijo', '1234'),
+    ('nicolascalderon', '1234'),
     ('user1', '1234'),
     ('user2', '1234'),
     ('user3', '1234'),
