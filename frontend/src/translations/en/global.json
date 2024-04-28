@@ -4,6 +4,7 @@
         "Password": "Password",
         "Login": "Login",
         "Logged": "You are logged in",
-        "Database": "Database"
+        "Database": "Database",
+        "Logout": "Logout"
     }
 }

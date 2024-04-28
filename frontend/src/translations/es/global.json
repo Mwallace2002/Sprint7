@@ -4,6 +4,7 @@
         "Password": "Contraseña",
         "Login": "Iniciar sesión",
         "Logged": "Sesion iniciada",
-        "Database": "Base de datos"
+        "Database": "Base de datos",
+        "Logout": "Cerrar sesión"
     }
 }
