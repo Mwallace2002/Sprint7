@@ -23,6 +23,11 @@ CONEXION SQL
 TOKENS
 - En server: npm install jsonwebtoken
 
+Jira y Confluence:
+- https://alumnos-team-420.atlassian.net/wiki/spaces/CO/pages/edit-v2/163874?draftShareId=6d6c0545-c354-433d-8b67-5d25b46662f3
+- https://alumnos-team-420.atlassian.net/wiki/spaces/~712020acfc168e809a43f1a978d2073af83480/pages/66221/Proyecto+Programaci+n+Profesional+TEAM+-+420
+- https://alumnos-team-420.atlassian.net/jira/software/projects/PPP/boards/1/timeline
+
 Bibliografia:
 - Codigo basado en video de canal de youtube llamado Match Code, link:
   - https://www.youtube.com/watch?v=aNkOkjPLeqk&lc=UgyIXuOQ5iZyhXxZk_h4AaABAg.A-wpiTiJoh2A2l9W85yGpH
