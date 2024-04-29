@@ -22,3 +22,12 @@ CONEXION SQL
 
 TOKENS
 - En server: npm install jsonwebtoken
+
+Bibliografia:
+- Codigo basado en video de canal de youtube llamado Match Code, link:
+  - https://www.youtube.com/watch?v=aNkOkjPLeqk&lc=UgyIXuOQ5iZyhXxZk_h4AaABAg.A-wpiTiJoh2A2l9W85yGpH
+- https://jwt.io/
+- https://stackoverflow.com/questions/38552003/how-to-decode-jwt-token-in-javascript-without-using-a-library
+- Se utlizo Chatgpt para consultacion en problemas y arreglos de codigo.
+
+  
