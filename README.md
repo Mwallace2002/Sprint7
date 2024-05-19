@@ -13,7 +13,7 @@ BACKEND
 - Control c pa cerrar la server
 - Para correrlo:
   - Cd server
-  - ./src/index.js
+  - node ./src/index.js
 
 
 CONEXION SQL
