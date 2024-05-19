@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 const Home = () => {
     const [data, setData] = useState(null);
     const [t, i18n] = useTranslation("global");
-    const [isLoggedIn, setIsLoggedIn] = useState(true); 
+    const [isLoggedIn, setIsLoggedIn] = useState(true);
 
     useEffect(() => {
         
