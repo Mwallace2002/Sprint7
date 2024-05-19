@@ -5,10 +5,10 @@ import { useTranslation } from "react-i18next";
 const Home = () => {
     const [data, setData] = useState(null);
     const [t, i18n] = useTranslation("global");
-    const [isLoggedIn, setIsLoggedIn] = useState(true); // Asumiendo que el usuario está inicialmente logueado
+    const [isLoggedIn, setIsLoggedIn] = useState(true); 
 
     useEffect(() => {
-        // Tu código de efecto para la carga inicial aquí
+        
     }, []);
 
     const base = () => {
@@ -16,7 +16,7 @@ const Home = () => {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${localStorage.getItem('token')}` // Agrega el token de autenticación si es necesario
+                'Authorization': `Bearer ${localStorage.getItem('token')}`
             }
         })
             .then(response => {
@@ -35,18 +35,21 @@ const Home = () => {
 
     const handleLogout = () => {
         localStorage.removeItem('token');
-        setIsLoggedIn(false); // Actualiza el estado de la sesión
-        // Redirecciona a la página de inicio de sesión u otra página relevante
-        window.location.href = '/login'; // Cambia '/login' por la ruta de tu página de inicio de sesión
+        setIsLoggedIn(false); 
+        window.location.href = '/login'; 
     }
 
     return (
-        <div>
+        <div className="main-home">
             <div>{isLoggedIn ? t("label.Logged") : t("label.NotLogged")}</div>
-            <button className="custom-button1" onClick={base}>{t("label.Database")}</button>
-            <button className="custom-button1" onClick={handleLogout}>{t("label.Logout")}</button>
-            <button onClick={(event) => { event.preventDefault(); i18n.changeLanguage("es") }}>ES</button>
-            <button onClick={(event) => { event.preventDefault(); i18n.changeLanguage("en") }}>EN</button>
+            <div className="buttons-container">
+                <button className="custom-button1" onClick={base}>{t("label.Database")}</button>
+                <button className="custom-button1" onClick={handleLogout}>{t("label.Logout")}</button>
+            </div>
+            <div className="buttons-container">
+                <button onClick={(event) => { event.preventDefault(); i18n.changeLanguage("es") }}>ES</button>
+                <button onClick={(event) => { event.preventDefault(); i18n.changeLanguage("en") }}>EN</button>
+            </div>
             {data && (
                 <div>
                     <pre>{JSON.stringify(data, null, 2)}</pre>
@@ -57,3 +60,4 @@ const Home = () => {
 }
 
 export default Home;
+

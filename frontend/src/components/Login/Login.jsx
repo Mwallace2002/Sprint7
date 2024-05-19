@@ -39,30 +39,39 @@ const Login = () => {
             })
     }
 
-    return(
-        <>{loginSuccessful ? <Home />: <div className="custom-form">
-                
-            <form>
-            <label className="custom-label">{t("label.Username")}</label>
-            <input
-                onChange={(event) => setUsername(event.target.value)}
-                placeholder='username'
-                className="custom-input"
-                type="text" />
-            <label className="custom-label">{t("label.Password")}</label>
-            <input
-                onChange={(event) => setPassword(event.target.value)}
-                placeholder='password'
-                className="custom-input"
-                type="password" />
-            <button className="custom-button" onClick={handdleLogin}>{t("label.Login")}</button>
-            <button onClick={(event) => { event.preventDefault(); i18n.changeLanguage("es") }}>ES</button>
-            <button onClick={(event) => { event.preventDefault(); i18n.changeLanguage("en") }}>EN</button>
-
-            </form>
-
-        </div>}</>
-    );
+    return (
+        <>
+          {loginSuccessful ? (
+            <Home />
+          ) : (
+            <div className="custom-form">
+              <form>
+                <label className="custom-label">{t("label.Username")}</label>
+                <input
+                  onChange={(event) => setUsername(event.target.value)}
+                  placeholder="username"
+                  className="custom-input"
+                  type="text"
+                />
+                <label className="custom-label">{t("label.Password")}</label>
+                <input
+                  onChange={(event) => setPassword(event.target.value)}
+                  placeholder="password"
+                  className="custom-input"
+                  type="password"
+                />
+                <div className="language-buttons">
+                  <button onClick={(event) => { event.preventDefault(); i18n.changeLanguage("es") }}>ES</button>
+                  <button onClick={(event) => { event.preventDefault(); i18n.changeLanguage("en") }}>EN</button>
+                </div>
+                <div className="login-button">
+                    <button className="custom-button" onClick={handdleLogin}>{t("label.Login")}</button>
+                </div>
+              </form>
+            </div>
+          )}
+        </>
+      );
 }
 
 export default Login;

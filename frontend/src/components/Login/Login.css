@@ -7,6 +7,12 @@
     width: 300px;
 }
 
+    @media screen and (max-width: 300px) {
+        .custom-form{
+            display: inline-block;
+        }
+    }
+
 .custom-label {
     margin-bottom: 10px;
 }
@@ -39,3 +45,20 @@
 .custom-button:focus {
     outline: none;
 }
+
+.language-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px; 
+    margin-bottom: 10px; 
+}
+
+.login-button {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px; 
+    margin-bottom: 10px; 
+}
+
+
+  

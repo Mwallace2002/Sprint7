@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import Main from "/Users/maxwallace/Desktop/Sprint 7/Sprint/frontend/src/components/Main/Main.jsx";
+import Main from "/Users/maxwallace/Desktop/PROGRA PROFESIONAL/Sprint 7/Sprint/frontend/src/components/Main/Main.jsx";
 import {useTranslation} from "react-i18next";
 import {I18nextProvider} from "react-i18next"
 import i18next from "i18next";
