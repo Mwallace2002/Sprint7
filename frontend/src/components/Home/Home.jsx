@@ -1,3 +1,5 @@
+import React from 'react';
+import Navbar from '../Navbar/Navbar.jsx';
 import './Home.css';
 import { useState, useEffect } from 'react';
 import { useTranslation } from "react-i18next";
@@ -40,21 +42,20 @@ const Home = () => {
     }
 
     return (
-        <div className="main-home">
-            <div>{isLoggedIn ? t("label.Logged") : t("label.NotLogged")}</div>
-            <div className="buttons-container">
-                <button className="custom-button1" onClick={base}>{t("label.Database")}</button>
-                <button className="custom-button1" onClick={handleLogout}>{t("label.Logout")}</button>
-            </div>
-            <div className="buttons-container">
-                <button onClick={(event) => { event.preventDefault(); i18n.changeLanguage("es") }}>ES</button>
-                <button onClick={(event) => { event.preventDefault(); i18n.changeLanguage("en") }}>EN</button>
-            </div>
-            {data && (
-                <div>
-                    <pre>{JSON.stringify(data, null, 2)}</pre>
+        <div>
+            {isLoggedIn && <Navbar />}
+            <div className="main-home">
+                <div>{isLoggedIn ? t("label.Logged") : t("label.NotLogged")}</div>
+                <div className="buttons-container">
+                    <button className="custom-button1" onClick={base}>{t("label.Database")}</button>
+                    <button className="custom-button1" onClick={handleLogout}>{t("label.Logout")}</button>
                 </div>
-            )}
+                {data && (
+                    <div>
+                        <pre>{JSON.stringify(data, null, 2)}</pre>
+                    </div>
+                )}
+            </div>
         </div>
     );
 }

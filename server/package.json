@@ -14,7 +14,7 @@
     "mysql": "^2.18.1"
   },
   "description": "",
-  "bin" : {
-    "execute" : "src/index.js"
-} 
+  "bin": {
+    "execute": "src/index.js"
+  }
 }

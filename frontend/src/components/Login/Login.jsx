@@ -60,12 +60,12 @@ const Login = () => {
                   className="custom-input"
                   type="password"
                 />
-                <div className="language-buttons">
-                  <button onClick={(event) => { event.preventDefault(); i18n.changeLanguage("es") }}>ES</button>
-                  <button onClick={(event) => { event.preventDefault(); i18n.changeLanguage("en") }}>EN</button>
-                </div>
                 <div className="login-button">
                     <button className="custom-button" onClick={handdleLogin}>{t("label.Login")}</button>
+                </div>
+                <div className="buttons-container">
+                    <button onClick={(event) => { event.preventDefault(); i18n.changeLanguage("es") }}>ES</button>
+                    <button onClick={(event) => { event.preventDefault(); i18n.changeLanguage("en") }}>EN</button>
                 </div>
               </form>
             </div>

@@ -1,0 +1,34 @@
+.delivery-form-container {
+    margin-top: 60px; /* Adjust margin to avoid overlapping with navbar */
+    padding: 20px;
+  }
+  
+  .delivery-form {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .delivery-form label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .delivery-form input[type="text"],
+  .delivery-form input[type="time"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+  }
+  
+  .delivery-form button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  .delivery-form button:hover {
+    background-color: #0056b3;
+  }
+  

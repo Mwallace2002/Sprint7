@@ -46,13 +46,6 @@
     outline: none;
 }
 
-.language-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 10px; 
-    margin-bottom: 10px; 
-}
-
 .login-button {
     display: flex;
     justify-content: center;
@@ -60,5 +53,9 @@
     margin-bottom: 10px; 
 }
 
-
-  
+.buttons-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px; 
+    margin-bottom: 10px; 
+}
