@@ -4,9 +4,12 @@ const mysql = require('mysql');
        host: 'localhost',
        port: '3306',
        user: 'root',
-       password: '12345678',
+       password: 'agbdlcid',
        database: 'pp420',
        authPlugin: 'mysql_native_password' 
    });
 
    module.exports = connection;
+
+
+

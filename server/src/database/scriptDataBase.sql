@@ -15,3 +15,19 @@ INSERT INTO login (username, password) VALUES
     ('user2', '1234'),
     ('user3', '1234'),
     ('user4', '1234');
+
+
+create table contactos(
+	departamento varchar(50) not null,
+    mail varchar(50) not null,
+    numero varchar(50) not null,
+    primary key(departamento, mail)
+);
+
+INSERT INTO contactos (departamento, mail, numero) VALUES
+    ('Ventas', 'ventas@gmail.com', '123'),
+    ('Marketing', 'marketing@gmail.com', '456'),
+    ('Desarrollo', 'desarrollo@gmail.com', '789'),
+    ('Recursos humanos', 'recursoshumanos@gmail.com', '098');
+    
+

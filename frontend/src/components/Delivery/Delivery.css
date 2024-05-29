@@ -1,34 +1,37 @@
 .delivery-form-container {
-    margin-top: 60px; /* Adjust margin to avoid overlapping with navbar */
-    padding: 20px;
-  }
-  
-  .delivery-form {
-    max-width: 400px;
-    margin: 0 auto;
-  }
-  
-  .delivery-form label {
-    display: block;
-    margin-bottom: 5px;
-  }
-  
-  .delivery-form input[type="text"],
-  .delivery-form input[type="time"] {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-  }
-  
-  .delivery-form button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-  }
-  
-  .delivery-form button:hover {
-    background-color: #0056b3;
-  }
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+}
+
+.delivery-form label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.delivery-form input,
+.delivery-form select {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.delivery-form button {
+  padding: 10px 15px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.delivery-form button:hover {
+  background-color: #218838;
+}
+
   
