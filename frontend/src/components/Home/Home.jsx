@@ -31,12 +31,12 @@ const Home = () => {
                 setData(data);
             })
             .catch(error => {
-                console.error('LOG DE ERROR:', error);
+                console.error('CONTROL 4 LOG DE ERROR:', error);
             });
     }
 
     const handleLogout = () => {
-        console.debug('LOG DEBUG: Logging out');
+        console.debug('CONTROL 4 LOG DEBUG: Logging out');
         localStorage.removeItem('token');
         setIsLoggedIn(false); 
         window.location.href = '/login'; 
