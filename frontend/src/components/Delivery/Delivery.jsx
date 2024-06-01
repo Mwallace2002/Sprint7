@@ -10,7 +10,7 @@ const Delivery = () => {
         const arrivalTime = event.target.arrivalTime.value;
         const recipient = event.target.recipient.value;
 
-        console.log(`ID del paquete: ${packageId}, Hora de llegada: ${arrivalTime}, Destinatario: ${recipient}`);
+        console.log(`LOG DE INFORMACION: ID del paquete: ${packageId}, Hora de llegada: ${arrivalTime}, Destinatario: ${recipient}`);
     };
 
     return (

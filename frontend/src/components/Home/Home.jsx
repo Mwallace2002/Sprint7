@@ -31,11 +31,12 @@ const Home = () => {
                 setData(data);
             })
             .catch(error => {
-                console.error('Error:', error);
+                console.error('LOG DE ERROR:', error);
             });
     }
 
     const handleLogout = () => {
+        console.debug('LOG DEBUG: Logging out');
         localStorage.removeItem('token');
         setIsLoggedIn(false); 
         window.location.href = '/login'; 

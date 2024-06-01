@@ -14,7 +14,7 @@ module.exports.login = (req, res) =>{
 
           if(result.length > 0){
                 const token = jwt.sign({username}, "Stack", {
-                    expiresIn: '1m'
+                    expiresIn: '5m'
                 });
                 res.send({token});
           } else {
