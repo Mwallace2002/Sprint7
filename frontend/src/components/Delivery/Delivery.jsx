@@ -1,7 +1,3 @@
-
-
-
-
 import React, { useState, useEffect } from 'react';
 import Navbar from '../Navbar/Navbar.jsx';
 import './Delivery.css';
