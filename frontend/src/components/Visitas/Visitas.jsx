@@ -17,20 +17,42 @@ const Visitas = () => {
   const [verificarRut, setVerificarRut] = useState('');
   const [verificarRutMessage, setVerificarRutMessage] = useState('');
 
+  const [rutNoFrecuente, setRutNoFrecuente] = useState('');
+  const [nombreNoFrecuente, setNombreNoFrecuente] = useState('');
+  const [fechaNacimientoNoFrecuente, setFechaNacimientoNoFrecuente] = useState('');
+  const [selectedDepartmentNoFrecuente, setSelectedDepartmentNoFrecuente] = useState('');
+
   const handleDepartmentChange = (event) => {
     setSelectedDepartment(event.target.value);
   };
 
-  const handleSubmit = (event) => {
+  const handleDepartmentChangeNoFrecuente = (event) => {
+    setSelectedDepartmentNoFrecuente(event.target.value);
+  };
+
+  const handleSubmitFrecuente = (event) => {
     event.preventDefault(); 
 
     const rutValue = rut;
     const nombreValue = nombre;
     const fechaNacimientoValue = fechaNacimiento;
     const VerificarRutValue = verificarRut;
+    const department = selectedDepartment;
 
-    console.log(`Rut de la visita: ${rutValue}, Nombre y apellido: ${nombreValue}, Fecha de Nacimiento: ${fechaNacimientoValue}`);
+
+    console.log(`VISITA FRECUENTE Departamento: ${department},Rut: ${rutValue}, Nombre y apellido: ${nombreValue}, Fecha de Nacimiento: ${fechaNacimientoValue}`);
     setVerificarRutMessage(`Rut de la frecuente: ${VerificarRutValue}`);
+  };
+
+  const handleSubmitNoFrecuente = (event) => {
+    event.preventDefault(); 
+
+    const rutNoFrecuenteValue = rutNoFrecuente;
+    const nombreNoFrecuenteValue = nombreNoFrecuente;
+    const fechaNacimientoNoFrecuenteValue = fechaNacimientoNoFrecuente;
+    const selectedDepartmentNoFrecuenteValue = selectedDepartmentNoFrecuente;
+
+    console.log(`VISITA NO FRECUENTE Departamento: ${selectedDepartmentNoFrecuenteValue}, Rut: ${rutNoFrecuenteValue}, Nombre y apellido: ${nombreNoFrecuenteValue}, Fecha de Nacimiento: ${fechaNacimientoNoFrecuenteValue}`);
   };
 
   return (
@@ -38,7 +60,7 @@ const Visitas = () => {
       <Navbar />
       <div className="visitas-form-container">
         <h1><center>Verificar si es visita frecuente</center></h1>
-        <form className="visitas-form" onSubmit={handleSubmit}>
+        <form className="visitas-form" onSubmit={handleSubmitFrecuente}>
           <label htmlFor="verificarRut">Rut de la visita:</label>
           <input type="text" id="verificarRut" name="verificarRut" value={verificarRut} onChange={(e) => setVerificarRut(e.target.value)} />
           <p>{verificarRutMessage}</p>
@@ -48,7 +70,7 @@ const Visitas = () => {
 
       <div className="visitas-form-container">
         <h1><center>Añadir visita frecuente</center></h1>
-        <form className="visitas-form" onSubmit={handleSubmit}>
+        <form className="visitas-form" onSubmit={handleSubmitFrecuente}>
           <label htmlFor="department">Departamento:</label>
           <select id="department" value={selectedDepartment} onChange={handleDepartmentChange}>
             <option value="">Seleccione un departamento</option>
@@ -70,7 +92,29 @@ const Visitas = () => {
         </form>
       </div>
 
-      
+      <div className="visitas-form-container">
+        <h1><center>Añadir visita no frecuente</center></h1>
+        <form className="visitas-form" onSubmit={handleSubmitNoFrecuente}>
+          <label htmlFor="departmentNoFrecuente">Departamento:</label>
+          <select id="departmentNoFrecuente" value={selectedDepartmentNoFrecuente} onChange={handleDepartmentChangeNoFrecuente}>
+            <option value="">Seleccione un departamento</option>
+            {departments.map((dept) => (
+              <option key={dept} value={dept}>{dept}</option>
+            ))}
+          </select>
+
+          <label htmlFor="rutNoFrecuente">Rut de la visita no frecuente:</label>
+          <input type="text" id="rutNoFrecuente" name="rutNoFrecuente" value={rutNoFrecuente} onChange={(e) => setRutNoFrecuente(e.target.value)} />
+
+          <label htmlFor="nombreNoFrecuente">Nombre y apellido:</label>
+          <input type="text" id="nombreNoFrecuente" name="nombreNoFrecuente" value={nombreNoFrecuente} onChange={(e) => setNombreNoFrecuente(e.target.value)} />
+
+          <label htmlFor="fechaNacimientoNoFrecuente">Fecha de Nacimiento:</label>
+          <input type="date" id="fechaNacimientoNoFrecuente" name="fechaNacimientoNoFrecuente" value={fechaNacimientoNoFrecuente} onChange={(e) => setFechaNacimientoNoFrecuente(e.target.value)} />
+
+          <button type="submit">Submit</button>
+        </form>
+      </div>
     </div>
   );
 };
