@@ -1,12 +1,27 @@
 {
+  "name": "avance_pp_max",
+  "version": "1.0.0",
+  "description": "FRONTEND - Instalar yarn - Abrir el documento - Cd frontend - Yarn (descargar dependencias) - Yarn run dev - yarn add i18next - yarn add react-i18next",
+  "type": "module",
+  "main": "index.mjs",
+  "scripts": {
+    "dev": "nodemon server/index.mjs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.19.2",
     "mongoose": "^8.4.1",
+    "morgan": "^1.10.0",
     "mysql2": "^3.10.0",
     "react-router-dom": "^6.23.1",
     "socket.io": "^4.7.5",
     "socket.io-client": "^4.7.5",
     "yarn": "^1.22.22"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.3"
   }
 }

@@ -1,6 +1,66 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from '../Navbar/Navbar.jsx';
 import './Delivery.css';
+import io from 'socket.io-client';
+
+const socket = io("http://localhost:4000/");
+
+function Delivery() {
+  const [message, setMessage] = useState('');
+  const [messages, setMessages] = useState([]);
+
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const newMessage = {
+      body: message,
+      from: me
+    }
+    // Aquí puedes enviar el mensaje al servidor de Socket.IO
+    setMessages([...messages, message])
+    socket.emit('message', message);
+    setMessage(''); // Limpiar el campo de mensaje después de enviar
+  };
+
+  useEffect(() => {
+   socket.on('message', receiveMessage);
+
+   return () => {
+    socket.off('message', receiveMessage);
+   }
+
+  }, [])
+
+  const receiveMessage = (message) => 
+  setMessages((state) => [... state, message])
+
+
+  return (
+    <div className="message-container">
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          placeholder='Escribe el mensaje que quieres enviar'
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+        />
+        <button type="submit">Enviar</button>
+      </form>
+      <ul>
+        {
+          messages.map((message, i) => (
+            <li key={i}>
+              {message.from}:{message.body}
+              </li>
+
+          ))
+        }      
+      </ul>
+    </div>
+  );
+}
+// hasta acá esta la funcionalidad de mensajería instantanea
+
 
 const departments = [
   'Ventas',
@@ -9,14 +69,14 @@ const departments = [
   'Recursos humanos'
 ];
 
-const Delivery = () => {
+const DeliveryPage = () => {
   const [selectedDepartment, setSelectedDepartment] = useState('');
   const [email, setEmail] = useState('');
   const [messageSent, setMessageSent] = useState(false);
 
   useEffect(() => {
     if (selectedDepartment) {
-      console.log(`Fetching email for department: ${selectedDepartment}`);
+      console.log(`Buscando email para el departamento: ${selectedDepartment}`);
       fetchEmail();
     } else {
       setEmail('');
@@ -24,7 +84,7 @@ const Delivery = () => {
   }, [selectedDepartment]);
 
   const handleDepartmentChange = (event) => {
-    const department = event.target.options[event.target.selectedIndex].value;
+    const department = event.target.value;
     console.log(`Departamento seleccionado: ${department}`);
     setSelectedDepartment(department);
   };
@@ -36,29 +96,32 @@ const Delivery = () => {
       if (data.email) {
         setEmail(data.email);
       } else {
-        console.error('Error fetching email:', data.error);
+        console.error('Error al obtener el email:', data.error);
         setEmail('');
       }
     } catch (error) {
-      console.error('Error fetching email:', error);
+      console.error('Error al obtener el email:', error);
       setEmail('');
     }
   };
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-
-    const packageId = event.target.packageId.value;
-    const arrivalTime = event.target.arrivalTime.value;
-    const recipient = event.target.recipient.value;
-
-    console.log(`ID del paquete: ${packageId}, Hora de llegada: ${arrivalTime}, Destinatario: ${recipient}`);
-    console.log(`Email del departamento seleccionado: ${email}`);
+  const handleSendMessage = () => {
+    // Aquí puedes enviar el mensaje manualmente usando la información disponible
+    const packageId = document.getElementById('packageId').value;
+    const arrivalTime = document.getElementById('arrivalTime').value;
+    const recipient = document.getElementById('recipient').value;
 
     const message = `ID del paquete: ${packageId}\nHora de llegada: ${arrivalTime}\nDestinatario: ${recipient}\nEmail del departamento seleccionado: ${email}`;
 
+    // Aquí puedes enviar el mensaje al servidor de Socket.IO
+    socket.emit('message', message);
+
+    // También puedes enviar el mensaje por correo electrónico u otras formas de comunicación
+    sendEmail(message);
+  };
+
+  const sendEmail = async (message) => {
     try {
-      // Enviar mensaje al departamento seleccionado
       const response = await fetch('http://localhost:3050/api/send-email', {
         method: 'POST',
         headers: {
@@ -77,8 +140,7 @@ const Delivery = () => {
       } else {
         console.error('Error al enviar el mensaje al departamento:', response.statusText);
       }
-      
-      // Enviar mensaje al correo electrónico fijo
+
       const fixedEmailResponse = await fetch('http://localhost:3050/api/send-email', {
         method: 'POST',
         headers: {
@@ -105,8 +167,8 @@ const Delivery = () => {
     <div>
       <Navbar />
       <div className="delivery-form-container">
-        <h1><center>This is the Delivery Page</center></h1>
-        <form className="delivery-form" onSubmit={handleSubmit}>
+        <h1><center>Esta es la página de Entrega</center></h1>
+        <form className="delivery-form">
           <label htmlFor="department">Departamento:</label>
           <select id="department" value={selectedDepartment} onChange={handleDepartmentChange}>
             <option value="">Seleccione un departamento</option>
@@ -126,12 +188,15 @@ const Delivery = () => {
           <label htmlFor="recipient">Destinatario:</label>
           <input type="text" id="recipient" name="recipient" />
 
-          <button type="submit">Submit</button>
+          <button type="button" onClick={handleSendMessage}>Enviar</button>
           {messageSent && <p>¡Mensaje enviado correctamente!</p>}
         </form>
+      </div>
+      <div className="message-center">
+        <Delivery /> {/* Agregamos el componente de entrega aquí */}
       </div>
     </div>
   );
 };
 
-export default Delivery;
+export default DeliveryPage;

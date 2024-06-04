@@ -34,4 +34,10 @@
   background-color: #218838;
 }
 
-  
+.message-container {
+  text-align: center;
+}
+
+.message-container form {
+  display: inline-block;
+}
