@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Navbar from '../Navbar/Navbar.jsx';
 import QRCode from 'qrcode.react';
 import './Delivery.css';
-
+//fusion
 const departments = [
   'Ventas',
   'Marketing',
