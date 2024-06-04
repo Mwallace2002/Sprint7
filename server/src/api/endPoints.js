@@ -34,7 +34,7 @@ router.get('/api/get-email/:department', (req, res) => {
   const query = 'SELECT mail FROM contactos WHERE departamento = ?';
 
   console.log(`Fetching email for department: ${department}`); 
-  console.debug(`SQL Query: ${query}`); 
+  console.debug(`SQL Query CONTROL 4: ${query}`); 
 
   db.query(query, [department], (err, results) => {
     if (err) {
