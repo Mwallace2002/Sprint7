@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from '../Navbar/Navbar.jsx';
+import QRCode from 'qrcode.react';
 import './Delivery.css';
 
 const departments = [
@@ -15,6 +16,7 @@ const Delivery = () => {
   const [packageId, setPackageId] = useState('');
   const [arrivalTime, setArrivalTime] = useState('');
   const [recipient, setRecipient] = useState('');
+  const [whatsappURL, setWhatsappURL] = useState('');
 
   useEffect(() => {
     if (selectedDepartment) {
@@ -42,6 +44,12 @@ const Delivery = () => {
     const packageIdValue = packageId;
     const arrivalTimeValue = arrivalTime;
     const recipientValue = recipient;
+    const message = `ID del paquete: ${packageIdValue}, Hora de llegada: ${arrivalTimeValue}, Destinatario: ${recipientValue}`;
+    const phoneNumber = '56949187570'; 
+    const whatsappURL = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
+    setWhatsappURL(whatsappURL);
+
+    window.open(whatsappURL, '_blank');
 
     console.log(`ID del paquete: ${packageIdValue}, Hora de llegada: ${arrivalTimeValue}, Destinatario: ${recipientValue}`);
   };
@@ -71,6 +79,12 @@ const Delivery = () => {
 
           <button type="submit">Submit</button>
         </form>
+        {whatsappURL && (
+          <div className="qr-code">
+            <h2>Scan this QR Code to send the message via WhatsApp</h2>
+            <QRCode value={whatsappURL} />
+          </div>
+        )}
       </div>
     </div>
   );
