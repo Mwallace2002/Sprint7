@@ -9,7 +9,8 @@ FRONTEND
 2) Yarn (descargar dependencias)
 3) Yarn add react-i18next
 4) Yarn add i18next
-5) Yarn run dev
+5) npm install qrcode.react
+6) Yarn run dev
 
 BACKEND 
 
