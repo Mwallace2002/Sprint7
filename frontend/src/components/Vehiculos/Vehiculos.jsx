@@ -15,7 +15,9 @@ const Vehiculos = () => {
   const [mensaje, setMensaje] = useState('');
   const [tiempoHastaNotificacion, setTiempoHastaNotificacion] = useState(null);
   const [infoVehiculo, setInfoVehiculo] = useState({ placa: '', estacionamiento: '' });
-  const [estacionamientoSeleccionado, setEstacionamientoSeleccionado] = useState(''); // Nuevo estado
+  
+  const [ocupacionEstacionamientos, setOcupacionEstacionamientos] = useState(Array(5).fill('libre')); 
+
 
 
 
@@ -32,6 +34,10 @@ const Vehiculos = () => {
     };
     console.log('Patente registrada:', placa); // Imprimir la patente registrada en el console log
     console.log('Datos del vehículo:', vehiculoData);
+
+    const nuevoEstadoOcupacion = [...ocupacionEstacionamientos];
+    nuevoEstadoOcupacion[numeroEstacionamiento - 1] = 'ocupado';    //funcionalidad nueva para guardar el estacionamiento ocupado
+    setOcupacionEstacionamientos(nuevoEstadoOcupacion);
 
     const [entradaHoras, entradaMinutos] = horaEntrada.split(':').map(Number);
     const tiempoEstanciaTotalSegundos = 
@@ -85,20 +91,34 @@ const Vehiculos = () => {
 
   return (
     <div>
-        <Navbar />
-            <div className="vehiculos-form-container">
-            <h1><center>Registro de Vehículos</center></h1>
-            <form className="vehiculos-form" onSubmit={handleSubmit}>
-                <label htmlFor="placa">Placa del Vehículo:</label>
-                <input type="text" id="placa" name="placa" value={placa} onChange={(e) => setPlaca(e.target.value)} />
+      <Navbar />
+      <div className="vehiculos-form-container">
+        <h1><center>Registro de Vehículos</center></h1>
+        <form className="vehiculos-form" onSubmit={handleSubmit}>
+          <label htmlFor="placa">Placa del Vehículo:</label>
+          <input type="text" id="placa" name="placa" value={placa} onChange={(e) => setPlaca(e.target.value)} />
 
-                <label htmlFor="numeroEstacionamiento">Número de Estacionamiento:</label>
-                <select id="numeroEstacionamiento" name="numeroEstacionamiento" value={numeroEstacionamiento} onChange={(e) => setNumeroEstacionamiento(e.target.value)}>
-                <option value="">Seleccionar estacionamiento</option>
-                {[1, 2, 3, 4, 5, 'N/A'].map(num => (
-                    <option key={num} value={num}>{num}</option>
-                ))}
-                </select>
+          <label htmlFor="numeroEstacionamiento">Número de Estacionamiento:</label>
+          <select id="numeroEstacionamiento" name="numeroEstacionamiento" value={numeroEstacionamiento} onChange={(e) => setNumeroEstacionamiento(e.target.value)}>
+            <option value="">Seleccionar estacionamiento</option>
+            {[1, 2, 3, 4, 5, 'N/A'].map(num => (
+              <option key={num} value={num}>{num}</option>
+            ))}
+          </select>
+          
+          <div className="ocupacion-estacionamientos">
+            {[1, 2, 3, 4, 5].map(numero => (
+              <div key={numero} className={`cuadro-ocupacion ${ocupacionEstacionamientos[numero - 1]}`}>
+                <span>{numero}</span>
+                <span>{ocupacionEstacionamientos[numero - 1] === 'ocupado' ? 'Ocupado' : 'Desocupado'}</span>
+              </div>
+            ))}
+          </div>
+
+               
+               
+               
+               
                 <label htmlFor="horaEntrada">Hora de Entrada:</label>
                 <input type="time" id="horaEntrada" name="horaEntrada" value={horaEntrada} onChange={(e) => setHoraEntrada(e.target.value)} />
 
