@@ -4,7 +4,7 @@ const mysql = require('mysql');
        host: 'localhost',
        port: '3000',
        user: 'root',
-       password: '12345678',
+       password: 'agbdlcid',
        database: 'PP420',
        authPlugin: 'mysql_native_password' 
    });

@@ -25,8 +25,6 @@ const deliveryController = require('../controllers/deliveryController');
 
 router.post('/login', loginController.login);
 router.get('/ping', pingController.ping);
-router.get('/ping', deliveryController.ping);
-
 
 // Ruta para obtener el correo electrónico del departamento
 router.get('/api/get-email/:department', (req, res) => {

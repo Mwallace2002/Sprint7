@@ -22,6 +22,10 @@ const Visitas = () => {
   const [fechaNacimientoNoFrecuente, setFechaNacimientoNoFrecuente] = useState('');
   const [selectedDepartmentNoFrecuente, setSelectedDepartmentNoFrecuente] = useState('');
 
+  const [patenteFrecuente, setPatenteFrecuente] = useState(''); // Estado para la patente de visita frecuente
+  const [patenteNoFrecuente, setPatenteNoFrecuente] = useState(''); // Estado para la patente de visita no frecuente
+
+  
   const handleDepartmentChange = (event) => {
     setSelectedDepartment(event.target.value);
   };
@@ -38,6 +42,8 @@ const Visitas = () => {
     const fechaNacimientoValue = fechaNacimiento;
     const VerificarRutValue = verificarRut;
     const department = selectedDepartment;
+    const patenteValue = patenteFrecuente; // Obtener la patente frecuente ingresada por el usuario (nueva funcion)
+    console.log(`Patente ingresada en visita frecuente: ${patenteValue}`);
 
 
     console.log(`VISITA FRECUENTE Departamento: ${department},Rut: ${rutValue}, Nombre y apellido: ${nombreValue}, Fecha de Nacimiento: ${fechaNacimientoValue}`);
@@ -51,6 +57,8 @@ const Visitas = () => {
     const nombreNoFrecuenteValue = nombreNoFrecuente;
     const fechaNacimientoNoFrecuenteValue = fechaNacimientoNoFrecuente;
     const selectedDepartmentNoFrecuenteValue = selectedDepartmentNoFrecuente;
+    const patenteNoFrecuenteValue = patenteNoFrecuente; // Obtener la patente no frecuente ingresada por el usuario
+    console.log(`Patente ingresada en visita no frecuente: ${patenteNoFrecuenteValue}`);
 
     console.log(`VISITA NO FRECUENTE Departamento: ${selectedDepartmentNoFrecuenteValue}, Rut: ${rutNoFrecuenteValue}, Nombre y apellido: ${nombreNoFrecuenteValue}, Fecha de Nacimiento: ${fechaNacimientoNoFrecuenteValue}`);
   };
@@ -71,6 +79,18 @@ const Visitas = () => {
       <div className="visitas-form-container">
         <h1><center>Añadir visita frecuente</center></h1>
         <form className="visitas-form" onSubmit={handleSubmitFrecuente}>
+        
+       
+       
+       
+        <label htmlFor="patenteFrecuente">Patente del vehículo:</label> 
+        <input type="text" id="patenteFrecuente" name="patenteFrecuente" value={patenteFrecuente} onChange={(e) => setPatenteFrecuente(e.target.value)} />
+
+          
+          
+          
+          
+          
           <label htmlFor="department">Departamento:</label>
           <select id="department" value={selectedDepartment} onChange={handleDepartmentChange}>
             <option value="">Seleccione un departamento</option>
@@ -95,6 +115,13 @@ const Visitas = () => {
       <div className="visitas-form-container">
         <h1><center>Añadir visita no frecuente</center></h1>
         <form className="visitas-form" onSubmit={handleSubmitNoFrecuente}>
+
+        
+        <label htmlFor="patenteNoFrecuente">Patente del vehículo:</label>
+        <input type="text" id="patenteNoFrecuente" name="patenteNoFrecuente" value={patenteNoFrecuente} onChange={(e) => setPatenteNoFrecuente(e.target.value)} />
+          
+          
+          
           <label htmlFor="departmentNoFrecuente">Departamento:</label>
           <select id="departmentNoFrecuente" value={selectedDepartmentNoFrecuente} onChange={handleDepartmentChangeNoFrecuente}>
             <option value="">Seleccione un departamento</option>

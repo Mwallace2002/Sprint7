@@ -28,3 +28,16 @@ INSERT INTO contactos (departamento, mail, numero) VALUES
     ('Marketing', 'marketing@gmail.com', '456'),
     ('Desarrollo', 'desarrollo@gmail.com', '789'),
     ('Recursos humanos', 'recursoshumanos@gmail.com', '098');
+
+
+create table vehiculos(
+	visita varchar(50) not null,
+    patente varchar(50) not null,
+    primary key(visita, patente)
+);
+
+INSERT INTO vehiculos (visita, patente) VALUES
+    ('Max', '123'),
+    ('Enrique', '456'),
+    ('Nico', '789');
+ 

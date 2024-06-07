@@ -8,6 +8,7 @@ import { Routes, Route } from 'react-router-dom';
 import global_es from "./translations/es/global.json";
 import global_en from "./translations/en/global.json";
 
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 i18next.init({
   interpolation: { escapeValue: false },
@@ -32,3 +33,4 @@ root.render(
     
   
 );
+

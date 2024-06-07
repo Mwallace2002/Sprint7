@@ -1,38 +1,44 @@
-.vehiculos-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    background-color: #f0f0f0;
+.vehiculos-form-container {
+  width: 80%;
+  margin: auto;
 }
 
-.message-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 20px;
+.vehiculos-form {
+  display: flex;
+  flex-direction: column;
 }
 
-.message-input {
-    padding: 10px;
-    margin-bottom: 10px;
-    width: 300px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
+.vehiculos-form label {
+  margin-bottom: 5px;
 }
 
-.submit-button {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
+.vehiculos-form input,
+.vehiculos-form select {
+  margin-bottom: 10px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
-.submit-button:hover {
-    background-color: #0056b3;
+.vehiculos-form button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
+
+.vehiculos-form button:hover {
+  background-color: #0056b3;
+}
+
+.mensaje {
+  margin-top: 10px;
+  padding: 8px;
+  background-color: #ffc107;
+  color: #212529;
+  border-radius: 5px;
+  text-align: center;
+}
+

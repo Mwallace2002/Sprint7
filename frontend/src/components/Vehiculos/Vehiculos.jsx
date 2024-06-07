@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import Navbar from '../Navbar/Navbar.jsx';
 import './Vehiculos.css';
+
 
 const Vehiculos = () => {
   const [placa, setPlaca] = useState('');
@@ -9,10 +11,13 @@ const Vehiculos = () => {
   const [tiempoEstanciaHoras, setTiempoEstanciaHoras] = useState('');
   const [tiempoEstanciaMinutos, setTiempoEstanciaMinutos] = useState('');
   const [tiempoEstanciaSegundos, setTiempoEstanciaSegundos] = useState('');
-  const [tiempoNotificacion, setTiempoNotificacion] = useState('');
+  const [tiempoNotificacion, setTiempoNotificacion] = useState(''); 
   const [mensaje, setMensaje] = useState('');
   const [tiempoHastaNotificacion, setTiempoHastaNotificacion] = useState(null);
   const [infoVehiculo, setInfoVehiculo] = useState({ placa: '', estacionamiento: '' });
+  const [estacionamientoSeleccionado, setEstacionamientoSeleccionado] = useState(''); // Nuevo estado
+
+
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -79,48 +84,44 @@ const Vehiculos = () => {
   }, [tiempoHastaNotificacion, infoVehiculo]);
 
   return (
-    <div className="vehiculos-form-container">
-      <h1><center>Registro de Vehículos</center></h1>
-      <form className="vehiculos-form" onSubmit={handleSubmit}>
-        <label htmlFor="placa">Placa del Vehículo:</label>
-        <input type="text" id="placa" name="placa" value={placa} onChange={(e) => setPlaca(e.target.value)} />
+    <div>
+        <Navbar />
+            <div className="vehiculos-form-container">
+            <h1><center>Registro de Vehículos</center></h1>
+            <form className="vehiculos-form" onSubmit={handleSubmit}>
+                <label htmlFor="placa">Placa del Vehículo:</label>
+                <input type="text" id="placa" name="placa" value={placa} onChange={(e) => setPlaca(e.target.value)} />
 
-        <label htmlFor="numeroEstacionamiento">Número de Estacionamiento:</label>
-        <select id="numeroEstacionamiento" name="numeroEstacionamiento" value={numeroEstacionamiento} onChange={(e) => setNumeroEstacionamiento(e.target.value)}>
-          <option value="">Seleccionar estacionamiento</option>
-          {[1, 2, 3, 4, 5, 'N/A'].map(num => (
-            <option key={num} value={num}>{num}</option>
-          ))}
-        </select>
+                <label htmlFor="numeroEstacionamiento">Número de Estacionamiento:</label>
+                <select id="numeroEstacionamiento" name="numeroEstacionamiento" value={numeroEstacionamiento} onChange={(e) => setNumeroEstacionamiento(e.target.value)}>
+                <option value="">Seleccionar estacionamiento</option>
+                {[1, 2, 3, 4, 5, 'N/A'].map(num => (
+                    <option key={num} value={num}>{num}</option>
+                ))}
+                </select>
+                <label htmlFor="horaEntrada">Hora de Entrada:</label>
+                <input type="time" id="horaEntrada" name="horaEntrada" value={horaEntrada} onChange={(e) => setHoraEntrada(e.target.value)} />
 
-        <label htmlFor="horaEntrada">Hora de Entrada:</label>
-        <input type="time" id="horaEntrada" name="horaEntrada" value={horaEntrada} onChange={(e) => setHoraEntrada(e.target.value)} />
+                <label htmlFor="tiempoEstanciaHoras">Horas de Estancia:</label>
+                <select id="tiempoEstanciaHoras" name="tiempoEstanciaHoras" value={tiempoEstanciaHoras} onChange={(e) => setTiempoEstanciaHoras(e.target.value)}>
+                {[...Array(24).keys()].map(hour => (
+                    <option key={hour} value={hour}>{hour}</option>
+                ))}
+                </select>
+                <label htmlFor="tiempoEstanciaMinutos">Minutos de Estancia:</label>
+                <select id="tiempoEstanciaMinutos" name="tiempoEstanciaMinutos" value={tiempoEstanciaMinutos} onChange={(e) => setTiempoEstanciaMinutos(e.target.value)}>
+                {[...Array(60).keys()].map(minute => (
+                    <option key={minute} value={minute}>{minute}</option>
+                ))}
+                </select>
+                <label htmlFor="tiempoNotificacion">Tiempo de Notificación (minutos antes):</label>
+                <input type="number" id="tiempoNotificacion" name="tiempoNotificacion" value={tiempoNotificacion} onChange={(e) => setTiempoNotificacion(e.target.value)} />
 
-        <label htmlFor="tiempoEstanciaHoras">Horas de Estancia:</label>
-        <select id="tiempoEstanciaHoras" name="tiempoEstanciaHoras" value={tiempoEstanciaHoras} onChange={(e) => setTiempoEstanciaHoras(e.target.value)}>
-          {[...Array(24).keys()].map(hour => (
-            <option key={hour} value={hour}>{hour}</option>
-          ))}
-        </select>
-
-        <label htmlFor="tiempoEstanciaMinutos">Minutos de Estancia:</label>
-        <select id="tiempoEstanciaMinutos" name="tiempoEstanciaMinutos" value={tiempoEstanciaMinutos} onChange={(e) => setTiempoEstanciaMinutos(e.target.value)}>
-          {[...Array(60).keys()].map(minute => (
-            <option key={minute} value={minute}>{minute}</option>
-          ))}
-        </select>
-
-      
-
-        <label htmlFor="tiempoNotificacion">Tiempo de Notificación (minutos antes):</label>
-        <input type="number" id="tiempoNotificacion" name="tiempoNotificacion" value={tiempoNotificacion} onChange={(e) => setTiempoNotificacion(e.target.value)} />
-
-        <button type="submit">Registrar</button>
-      </form>
-      {mensaje && <p className="mensaje">{mensaje}</p>}
-      <Link to="/ocupados">
-        <button>Ver Ocupados</button>
-      </Link>
+                <button type="submit">Registrar</button>
+            </form>
+            {mensaje && <p className="mensaje">{mensaje}</p>}
+            
+            </div>
     </div>
   );
 };
