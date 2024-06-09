@@ -7,8 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview",
-    "install-cloudflare": "yarn install --frozen-lockfile=false"
+    "preview": "vite preview"
   },
   "dependencies": {
     "false": "^0.0.4",
