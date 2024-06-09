@@ -1,15 +1,20 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import { VitePWA } from 'vite-plugin-pwa';
 
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    react(),
+    VitePWA(),
+  ],
   server: {
-    // Establece el tipo MIME para los archivos JSX
-    hmr: {
-      overlay: true,
+    middlewareMode: 'ssr',
+    // Middleware para establecer el tipo MIME correcto para los archivos JSX
+    fs: {
+      strict: false,
     },
-    headers: {
-      'Content-Type': 'application/javascript',
+    proxy: {
+      '/api': 'http://localhost:3000',
     },
   },
 });
