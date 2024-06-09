@@ -1,0 +1,10 @@
+{
+    "label": {
+        "Username": "Username",
+        "Password": "Password",
+        "Login": "Login",
+        "Logged": "You are logged in",
+        "Database": "Database",
+        "Logout": "Logout"
+    }
+}
