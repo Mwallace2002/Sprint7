@@ -22,7 +22,7 @@ const Navbar = () => {
   return (
     <div className={collapse ? 'sidebar sidebar-collapse' : 'sidebar'}>
       <ul className="sidebar-menu">
-        <li className="sidebar-item"><Link to="/">{t('navbar.home')}</Link></li>
+        <li className="sidebar-item"><Link to="/home">{t('navbar.home')}</Link></li>
         <li className="sidebar-item"><Link to="/delivery">{t('navbar.delivery')}</Link></li>
         <li className="sidebar-item"><Link to="/visitas">{t('navbar.visits')}</Link></li>
         <li className="sidebar-item"><Link to="/vehiculos">{t('navbar.vehicles')}</Link></li>
