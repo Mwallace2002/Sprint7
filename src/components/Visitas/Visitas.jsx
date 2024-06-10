@@ -25,7 +25,6 @@ const Visitas = () => {
   const [patenteFrecuente, setPatenteFrecuente] = useState(''); // Estado para la patente de visita frecuente
   const [patenteNoFrecuente, setPatenteNoFrecuente] = useState(''); // Estado para la patente de visita no frecuente
 
-  
   const handleDepartmentChange = (event) => {
     setSelectedDepartment(event.target.value);
   };
@@ -34,33 +33,89 @@ const Visitas = () => {
     setSelectedDepartmentNoFrecuente(event.target.value);
   };
 
-  const handleSubmitFrecuente = (event) => {
+  const handleSubmitFrecuente = async (event) => {
     event.preventDefault(); 
 
-    const rutValue = rut;
-    const nombreValue = nombre;
-    const fechaNacimientoValue = fechaNacimiento;
-    const VerificarRutValue = verificarRut;
-    const department = selectedDepartment;
-    const patenteValue = patenteFrecuente; // Obtener la patente frecuente ingresada por el usuario (nueva funcion)
-    console.log(`Patente ingresada en visita frecuente: ${patenteValue}`);
+    try {
+      const response = await fetch('http://localhost:3000/api/visitas-frecuentes', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          rut,
+          nombre,
+          fechaNacimiento,
+          departamento: selectedDepartment,
+          patente: patenteFrecuente
+        })
+      });
 
+      if (!response.ok) {
+        throw new Error('Error al agregar visita frecuente');
+      }
 
-    console.log(`VISITA FRECUENTE Departamento: ${department},Rut: ${rutValue}, Nombre y apellido: ${nombreValue}, Fecha de Nacimiento: ${fechaNacimientoValue}`);
-    setVerificarRutMessage(`Rut de la frecuente: ${VerificarRutValue}`);
+      const data = await response.json();
+      console.log('Visita frecuente agregada:', data);
+    } catch (error) {
+      console.error('Error:', error.message);
+    }
   };
 
-  const handleSubmitNoFrecuente = (event) => {
+  const handleSubmitNoFrecuente = async (event) => {
     event.preventDefault(); 
 
-    const rutNoFrecuenteValue = rutNoFrecuente;
-    const nombreNoFrecuenteValue = nombreNoFrecuente;
-    const fechaNacimientoNoFrecuenteValue = fechaNacimientoNoFrecuente;
-    const selectedDepartmentNoFrecuenteValue = selectedDepartmentNoFrecuente;
-    const patenteNoFrecuenteValue = patenteNoFrecuente; // Obtener la patente no frecuente ingresada por el usuario
-    console.log(`Patente ingresada en visita no frecuente: ${patenteNoFrecuenteValue}`);
+    try {
+      const response = await fetch('http://localhost:3000/api/visitas-no-frecuentes', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          rut: rutNoFrecuente,
+          nombre: nombreNoFrecuente,
+          fechaNacimiento: fechaNacimientoNoFrecuente,
+          patente: patenteNoFrecuente
+        })
+      });
 
-    console.log(`VISITA NO FRECUENTE Departamento: ${selectedDepartmentNoFrecuenteValue}, Rut: ${rutNoFrecuenteValue}, Nombre y apellido: ${nombreNoFrecuenteValue}, Fecha de Nacimiento: ${fechaNacimientoNoFrecuenteValue}`);
+      if (!response.ok) {
+        throw new Error('Error al agregar visita no frecuente');
+      }
+
+      const data = await response.json();
+      console.log('Visita no frecuente agregada:', data);
+    } catch (error) {
+      console.error('Error:', error.message);
+    }
+  };
+
+  const handleSubmitVerificarFrecuente = async (event) => {
+    event.preventDefault();
+
+    try {
+      const response = await fetch('http://localhost:3000/api/verificar-visita-frecuente', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ rut: verificarRut })
+      });
+
+      if (!response.ok) {
+        throw new Error('Error al verificar visita frecuente');
+      }
+
+      const data = await response.json();
+
+      if (data.esFrecuente) {
+        setVerificarRutMessage('La visita es frecuente');
+      } else {
+        setVerificarRutMessage('La visita no es frecuente');
+      }
+    } catch (error) {
+      setVerificarRutMessage('Error: ' + error.message);
+    }
   };
 
   return (
@@ -68,9 +123,15 @@ const Visitas = () => {
       <Navbar />
       <div className="visitas-form-container">
         <h1><center>Verificar si es visita frecuente</center></h1>
-        <form className="visitas-form" onSubmit={handleSubmitFrecuente}>
+        <form className="visitas-form" onSubmit={handleSubmitVerificarFrecuente}>
           <label htmlFor="verificarRut">Rut de la visita:</label>
-          <input type="text" id="verificarRut" name="verificarRut" value={verificarRut} onChange={(e) => setVerificarRut(e.target.value)} />
+          <input
+            type="text"
+            id="verificarRut"
+            name="verificarRut"
+            value={verificarRut}
+            onChange={(e) => setVerificarRut(e.target.value)}
+          />
           <p>{verificarRutMessage}</p>
           <button type="submit">Submit</button>
         </form>
@@ -79,18 +140,8 @@ const Visitas = () => {
       <div className="visitas-form-container">
         <h1><center>Añadir visita frecuente</center></h1>
         <form className="visitas-form" onSubmit={handleSubmitFrecuente}>
-        
-       
-       
-       
-        <label htmlFor="patenteFrecuente">Patente del vehículo:</label> 
-        <input type="text" id="patenteFrecuente" name="patenteFrecuente" value={patenteFrecuente} onChange={(e) => setPatenteFrecuente(e.target.value)} />
-
-          
-          
-          
-          
-          
+          <label htmlFor="patenteFrecuente">Patente del vehículo:</label> 
+          <input type="text" id="patenteFrecuente" name="patenteFrecuente" value={patenteFrecuente} onChange={(e) => setPatenteFrecuente(e.target.value)} />
           <label htmlFor="department">Departamento:</label>
           <select id="department" value={selectedDepartment} onChange={handleDepartmentChange}>
             <option value="">Seleccione un departamento</option>
@@ -111,16 +162,11 @@ const Visitas = () => {
           <button type="submit">Submit</button>
         </form>
       </div>
-
       <div className="visitas-form-container">
         <h1><center>Añadir visita no frecuente</center></h1>
         <form className="visitas-form" onSubmit={handleSubmitNoFrecuente}>
-
-        
-        <label htmlFor="patenteNoFrecuente">Patente del vehículo:</label>
-        <input type="text" id="patenteNoFrecuente" name="patenteNoFrecuente" value={patenteNoFrecuente} onChange={(e) => setPatenteNoFrecuente(e.target.value)} />
-          
-          
+          <label htmlFor="patenteNoFrecuente">Patente del vehículo:</label>
+          <input type="text" id="patenteNoFrecuente" name="patenteNoFrecuente" value={patenteNoFrecuente} onChange={(e) => setPatenteNoFrecuente(e.target.value)} />
           
           <label htmlFor="departmentNoFrecuente">Departamento:</label>
           <select id="departmentNoFrecuente" value={selectedDepartmentNoFrecuente} onChange={handleDepartmentChangeNoFrecuente}>

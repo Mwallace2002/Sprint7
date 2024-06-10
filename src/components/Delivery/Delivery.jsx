@@ -24,17 +24,17 @@ function DeliveryForm() {
 
   const fetchDepartmentNumber = async (department) => {
     try {
-      const response = await fetch(`https://tu-api-en-vercel.vercel.app/api/department/${department}`);
+      const response = await fetch(`http://localhost:3000/api/department/${department}`);
       if (!response.ok) {
         throw new Error('Error al obtener el número de WhatsApp');
       }
       const data = await response.json();
-      setDepartmentNumber(data.whatsappNumber);
+      setDepartmentNumber(data.numero);  // Cambiar de `data.whatsappNumber` a `data.numero`
     } catch (error) {
       console.error('Error fetching department number:', error);
     }
   };
-
+  
   const handleDepartmentChange = (event) => {
     const department = event.target.value;
     setSelectedDepartment(department);

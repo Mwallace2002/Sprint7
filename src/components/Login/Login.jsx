@@ -17,7 +17,7 @@ const Login = () => {
             username: username,
             password: password
         };
-        fetch('https://apivercel-smoky.vercel.app/api/login', {
+        fetch('http://localhost:3000/api/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
