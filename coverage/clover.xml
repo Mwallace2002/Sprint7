@@ -1,49 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1718087048423" clover="3.2.0">
-  <project timestamp="1718087048423" name="All files">
-    <metrics statements="736" coveredstatements="146" conditionals="5" coveredconditionals="2" methods="15" coveredmethods="2" elements="756" coveredelements="150" complexity="0" loc="736" ncloc="736" packages="10" files="10" classes="10"/>
-    <package name="src">
-      <metrics statements="35" coveredstatements="0" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="0"/>
-      <file name="main.jsx" path="C:\Users\nicoc\Desktop\Cont5\src\main.jsx">
-        <metrics statements="35" coveredstatements="0" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="0"/>
-        <line num="1" count="0" type="cond" truecount="0" falsecount="1"/>
-        <line num="2" count="0" type="stmt"/>
-        <line num="3" count="0" type="stmt"/>
-        <line num="4" count="0" type="stmt"/>
-        <line num="5" count="0" type="stmt"/>
-        <line num="6" count="0" type="stmt"/>
-        <line num="7" count="0" type="stmt"/>
-        <line num="8" count="0" type="stmt"/>
-        <line num="9" count="0" type="stmt"/>
-        <line num="10" count="0" type="stmt"/>
-        <line num="11" count="0" type="stmt"/>
-        <line num="12" count="0" type="stmt"/>
-        <line num="13" count="0" type="stmt"/>
-        <line num="14" count="0" type="stmt"/>
-        <line num="15" count="0" type="stmt"/>
-        <line num="16" count="0" type="stmt"/>
-        <line num="17" count="0" type="stmt"/>
-        <line num="18" count="0" type="stmt"/>
-        <line num="19" count="0" type="stmt"/>
-        <line num="20" count="0" type="stmt"/>
-        <line num="21" count="0" type="stmt"/>
-        <line num="22" count="0" type="stmt"/>
-        <line num="23" count="0" type="stmt"/>
-        <line num="24" count="0" type="stmt"/>
-        <line num="25" count="0" type="stmt"/>
-        <line num="26" count="0" type="stmt"/>
-        <line num="27" count="0" type="stmt"/>
-        <line num="28" count="0" type="stmt"/>
-        <line num="29" count="0" type="stmt"/>
-        <line num="30" count="0" type="stmt"/>
-        <line num="31" count="0" type="stmt"/>
-        <line num="32" count="0" type="stmt"/>
-        <line num="33" count="0" type="stmt"/>
-        <line num="34" count="0" type="stmt"/>
-        <line num="35" count="0" type="stmt"/>
-      </file>
-    </package>
-    <package name="src.components.Delivery">
+<coverage generated="1718088964583" clover="3.2.0">
+  <project timestamp="1718088964583" name="All files">
+    <metrics statements="679" coveredstatements="146" conditionals="3" coveredconditionals="2" methods="13" coveredmethods="2" elements="695" coveredelements="150" complexity="0" loc="679" ncloc="679" packages="8" files="8" classes="8"/>
+    <package name="Delivery">
       <metrics statements="92" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
       <file name="Delivery.jsx" path="C:\Users\nicoc\Desktop\Cont5\src\components\Delivery\Delivery.jsx">
         <metrics statements="92" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
@@ -141,7 +100,7 @@
         <line num="92" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="src.components.Home">
+    <package name="Home">
       <metrics statements="63" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
       <file name="Home.jsx" path="C:\Users\nicoc\Desktop\Cont5\src\components\Home\Home.jsx">
         <metrics statements="63" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
@@ -210,7 +169,7 @@
         <line num="63" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="src.components.Login">
+    <package name="Login">
       <metrics statements="77" coveredstatements="50" conditionals="2" coveredconditionals="1" methods="6" coveredmethods="1"/>
       <file name="Login.jsx" path="C:\Users\nicoc\Desktop\Cont5\src\components\Login\Login.jsx">
         <metrics statements="77" coveredstatements="50" conditionals="2" coveredconditionals="1" methods="6" coveredmethods="1"/>
@@ -293,7 +252,7 @@
         <line num="77" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="src.components.Main">
+    <package name="Main">
       <metrics statements="41" coveredstatements="41" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
       <file name="Main.jsx" path="C:\Users\nicoc\Desktop\Cont5\src\components\Main\Main.jsx">
         <metrics statements="41" coveredstatements="41" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
@@ -340,7 +299,7 @@
         <line num="41" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="src.components.Navbar">
+    <package name="Navbar">
       <metrics statements="53" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
       <file name="Navbar.jsx" path="C:\Users\nicoc\Desktop\Cont5\src\components\Navbar\Navbar.jsx">
         <metrics statements="53" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
@@ -399,7 +358,7 @@
         <line num="53" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="src.components.PrivateRoute">
+    <package name="PrivateRoute">
       <metrics statements="9" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
       <file name="PrivateRoute.jsx" path="C:\Users\nicoc\Desktop\Cont5\src\components\PrivateRoute\PrivateRoute.jsx">
         <metrics statements="9" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
@@ -414,7 +373,7 @@
         <line num="9" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="src.components.Vehiculos">
+    <package name="Vehiculos">
       <metrics statements="149" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
       <file name="Vehiculos.jsx" path="C:\Users\nicoc\Desktop\Cont5\src\components\Vehiculos\Vehiculos.jsx">
         <metrics statements="149" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
@@ -569,7 +528,7 @@
         <line num="149" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="src.components.Visitas">
+    <package name="Visitas">
       <metrics statements="195" coveredstatements="14" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
       <file name="Visitas.jsx" path="C:\Users\nicoc\Desktop\Cont5\src\components\Visitas\Visitas.jsx">
         <metrics statements="195" coveredstatements="14" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
@@ -768,34 +727,6 @@
         <line num="193" count="0" type="stmt"/>
         <line num="194" count="1" type="stmt"/>
         <line num="195" count="1" type="stmt"/>
-      </file>
-    </package>
-    <package name="src.utils">
-      <metrics statements="22" coveredstatements="0" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="0"/>
-      <file name="auth.js" path="C:\Users\nicoc\Desktop\Cont5\src\utils\auth.js">
-        <metrics statements="22" coveredstatements="0" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="0"/>
-        <line num="1" count="0" type="cond" truecount="0" falsecount="1"/>
-        <line num="2" count="0" type="stmt"/>
-        <line num="3" count="0" type="stmt"/>
-        <line num="4" count="0" type="stmt"/>
-        <line num="5" count="0" type="stmt"/>
-        <line num="6" count="0" type="stmt"/>
-        <line num="7" count="0" type="stmt"/>
-        <line num="8" count="0" type="stmt"/>
-        <line num="9" count="0" type="stmt"/>
-        <line num="10" count="0" type="stmt"/>
-        <line num="11" count="0" type="stmt"/>
-        <line num="12" count="0" type="stmt"/>
-        <line num="13" count="0" type="stmt"/>
-        <line num="14" count="0" type="stmt"/>
-        <line num="15" count="0" type="stmt"/>
-        <line num="16" count="0" type="stmt"/>
-        <line num="17" count="0" type="stmt"/>
-        <line num="18" count="0" type="stmt"/>
-        <line num="19" count="0" type="stmt"/>
-        <line num="20" count="0" type="stmt"/>
-        <line num="21" count="0" type="stmt"/>
-        <line num="22" count="0" type="stmt"/>
       </file>
     </package>
   </project>
