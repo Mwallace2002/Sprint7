@@ -24,7 +24,7 @@ function DeliveryForm() {
 
   const fetchDepartmentNumber = async (department) => {
     try {
-      const response = await fetch(`http://localhost:3000/api/department/${department}`);
+      const response = await fetch(`https://apivercel-mwallace2002-max-wallaces-projects.vercel.app/api/department/${department}`);
       if (!response.ok) {
         throw new Error('Error al obtener el número de WhatsApp');
       }

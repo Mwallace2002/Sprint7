@@ -37,7 +37,7 @@ const Visitas = () => {
     event.preventDefault(); 
 
     try {
-      const response = await fetch('http://localhost:3000/api/visitas-frecuentes', {
+      const response = await fetch('https://apivercel-mwallace2002-max-wallaces-projects.vercel.app/api/visitas-frecuentes', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -66,7 +66,7 @@ const Visitas = () => {
     event.preventDefault(); 
 
     try {
-      const response = await fetch('http://localhost:3000/api/visitas-no-frecuentes', {
+      const response = await fetch('https://apivercel-mwallace2002-max-wallaces-projects.vercel.app/api/visitas-no-frecuentes', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -94,7 +94,7 @@ const Visitas = () => {
     event.preventDefault();
 
     try {
-      const response = await fetch('http://localhost:3000/api/verificar-visita-frecuente', {
+      const response = await fetch('https://apivercel-mwallace2002-max-wallaces-projects.vercel.app/api/verificar-visita-frecuente', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -124,7 +124,7 @@ const Visitas = () => {
       <div className="visitas-form-container">
         <h1><center>Verificar si es visita frecuente</center></h1>
         <form className="visitas-form" onSubmit={handleSubmitVerificarFrecuente}>
-          <label htmlFor="verificarRut">Rut de la visita:</label>
+          <label htmlFor="verificarRut">Rut de la visita (sin punto ni guion):</label>
           <input
             type="text"
             id="verificarRut"
@@ -150,7 +150,7 @@ const Visitas = () => {
             ))}
           </select>
 
-          <label htmlFor="rut">Rut de la visita:</label>
+          <label htmlFor="rut">Rut de la visita (sin punto ni guion):</label>
           <input type="text" id="rut" name="rut" value={rut} onChange={(e) => setRut(e.target.value)} />
 
           <label htmlFor="nombre">Nombre y apellido:</label>
@@ -176,7 +176,7 @@ const Visitas = () => {
             ))}
           </select>
 
-          <label htmlFor="rutNoFrecuente">Rut de la visita no frecuente:</label>
+          <label htmlFor="rutNoFrecuente">Rut de la visita no frecuente (sin punto ni guion):</label>
           <input type="text" id="rutNoFrecuente" name="rutNoFrecuente" value={rutNoFrecuente} onChange={(e) => setRutNoFrecuente(e.target.value)} />
 
           <label htmlFor="nombreNoFrecuente">Nombre y apellido:</label>
